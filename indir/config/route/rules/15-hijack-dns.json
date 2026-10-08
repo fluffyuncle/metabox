@@ -1,0 +1,4 @@
+{
+	"action": "hijack-dns",
+	"protocol": "dns"
+}

@@ -1,0 +1,9 @@
+{
+	"action": "predefined",
+	"answer": [
+		"*. IN A 127.0.0.1"
+	],
+	"domain": "localhost",
+	"query_type": "A",
+	"rcode": "NOERROR"
+}

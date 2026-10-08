@@ -1,0 +1,13 @@
+{
+	"address": [
+		"172.19.0.1/24"
+	],
+	"auto_route": true,
+	"interface_name": "sing-box-tun",
+	"mtu": 1500,
+	"route_exclude_address": [],
+	"stack": "system",
+	"strict_route": true,
+	"tag": "tun-in",
+	"type": "tun"
+}

@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "start": "deno run -A main.ts"
+  },
+  "imports": {
+    "@std/path": "jsr:@std/path@^1.1.6",
+    "@stdx/zip": "jsr:@stdx/zip@^0.1.1"
+  }
+}

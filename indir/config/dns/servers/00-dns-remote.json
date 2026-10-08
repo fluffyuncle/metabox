@@ -1,0 +1,8 @@
+{
+	"detour": "proxy",
+	"domain_resolver": "dns-local",
+	"path": "/dns-query",
+	"server": "one.one.one.one",
+	"tag": "dns-remote",
+	"type": "https"
+}

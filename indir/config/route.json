@@ -1,0 +1,8 @@
+{
+    "auto_detect_interface": true,
+	"default_domain_resolver": {
+		"server": "dns-direct",
+		"strategy": ""
+	},
+	"final": "proxy"
+}

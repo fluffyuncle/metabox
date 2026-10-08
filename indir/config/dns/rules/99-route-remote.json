@@ -1,0 +1,4 @@
+{
+	"action": "route",
+	"server": "dns-remote"
+}

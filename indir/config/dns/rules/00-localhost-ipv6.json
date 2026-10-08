@@ -1,0 +1,6 @@
+{
+	"action": "predefined",
+	"domain": "localhost",
+	"query_type": "AAAA",
+	"rcode": "NXDOMAIN"
+}
