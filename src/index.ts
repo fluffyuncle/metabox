@@ -59,6 +59,7 @@ export interface BuildOptions {
 	workDir: string;
 	outputFile: string;
 
+	proxyOutbound: string;
 	directOutbound: string;
 	l3DirectOutbound?: string;
 	dnsDirectServer?: string;
@@ -235,9 +236,11 @@ export function buildRoute(
 	// 	appendProperty(config, "route.rules", l3DirectRoute);
 	// }
 
+	setProperty(config, "route.final", options.proxyOutbound);
 	for (const entry of Deno.readDirSync(options.routeDir)) {
 		if (entry.isDirectory) continue;
 		if (entry.name === options?.l3DirectOutbound) continue;
+		let ok = true;
 
 		console.log(`Building route ${entry.name} ...`);
 		const route = acceptor(
@@ -250,14 +253,21 @@ export function buildRoute(
 			}),
 			config,
 		);
-		appendProperty(config, "route.rules", route);
 
-		if (entry.name === options.directOutbound && options.l3DirectOutbound) {
-			const l3DirectRoute = structuredClone(route);
-			l3DirectRoute.outbound = options.l3DirectOutbound;
-			l3DirectRoute.preferred_by = [options.l3DirectOutbound];
-			appendProperty(config, "route.rules", l3DirectRoute);
+		if (entry.name === options.directOutbound) {
+			if(!(route.domain || route.domain_suffix || route.domain_keyword || route.domain_regex || route.ip_cidr || route.rule_set)) {
+				ok = false;
+			}
+			if(ok && options.l3DirectOutbound) {
+				const l3DirectRoute = structuredClone(route);
+				l3DirectRoute.action = "route";
+				l3DirectRoute.outbound = options.l3DirectOutbound;
+				l3DirectRoute.preferred_by = [options.l3DirectOutbound];
+				appendProperty(config, "route.rules", l3DirectRoute);
+			}
 		}
+
+		if(ok) appendProperty(config, "route.rules", route);
 	}
 
 	// if (dnsRoute) {
@@ -267,28 +277,6 @@ export function buildRoute(
 
 export function buildConfig(options: BuildOptions, acceptor: RouteAcceptor) {
 	const config: JsonObject = safeLoadJsonObject(options.inputFile);
-	if (options.l3DirectOutbound) {
-		const propKey = `outbounds`;
-		let outbound = getProperty(config, propKey);
-		if (!isJsonObject(outbound)) {
-			outbound = {
-				tag: options.l3DirectOutbound,
-				type: "bridge",
-			} as JsonObject;
-			appendProperty(config, propKey, outbound);
-		}
-	}
-	{
-		const propKey = `outbounds`;
-		let outbound = getProperty(config, propKey);
-		if (!isJsonObject(outbound)) {
-			outbound = {
-				tag: options.directOutbound,
-				type: "direct",
-			} as JsonObject;
-			appendProperty(config, propKey, outbound);
-		}
-	}
 
 	const rootEntries = sortedEntries(options.configDir);
 	const rootJsonStems = new Set(
@@ -327,6 +315,22 @@ export function buildConfig(options: BuildOptions, acceptor: RouteAcceptor) {
 			// configs/rules/*.json → config.rules = [...]
 			config[entry.name] = loadArrayDirectory(dir);
 		}
+	}
+	const propKey = `outbounds`;
+	let outbound = getProperty(config, propKey);
+	if (!isJsonObject(outbound)) {
+		outbound = {
+			tag: options.directOutbound,
+			type: "direct",
+		} as JsonObject;
+		appendProperty(config, propKey, outbound);
+	}
+	if (options.l3DirectOutbound) {
+		outbound = {
+			tag: options.l3DirectOutbound,
+			type: "bridge",
+		} as JsonObject;
+		appendProperty(config, propKey, outbound);
 	}
 	buildRoute(options, config, acceptor);
 
