@@ -1,17 +1,19 @@
 import { join } from "@std/path/join";
-import { RouteAcceptor, buildConfig, BuildOptions, fillRoute, Route } from "./src/index.ts";
+import { BuildOptions } from "./src/config.ts";
 import { convertWireGuardToSingBox } from "./src/convert.ts";
+import { buildConfig } from "./src/index.ts";
 import { startBox } from "./src/launcher.ts";
+import { Route, RouteAcceptor } from "./src/routes.ts";
 
 const inDir = "indir";
 const profileDir = "profile";
+const workdirPath = "workdir";
 
 const configDir = join(inDir, "config");
-const rulesDir = join(inDir, "rules");
+const rulesSearchDirs = ["rules", join(inDir, "rules")];
 const routeDir = join(inDir, "route");
 const inputFile = join(inDir, "config.json");
 
-const workdirPath = "workdir";
 const outputFile = join(workdirPath, "config.json");
 
 let l3BridgeEnabled: boolean = false;
@@ -21,42 +23,49 @@ async function main() {
 
 	const options: BuildOptions = {
 		configDir,
-		rulesDir: rulesDir,
+		rulesSearchDirs: rulesSearchDirs,
 		routeDir: routeDir,
 		inputFile,
 		workDir: workdirPath,
 		outputFile,
+		proxyOutbound: "proxy",
 		directOutbound: "direct",
-		dnsDirectServer: "dns-direct"
+		dnsDirectServer: "dns-direct",
 	};
-	if(l3BridgeEnabled) {
+	if (l3BridgeEnabled) {
 		options.l3DirectOutbound = "l3-direct";
 	}
 
-	buildConfig(options, ((entry, rules, config) => {
-		const route = {
-			action: "route",
-			outbound: entry
-		} as Route;
-		switch(entry) {
-			// case "geo-fi":
-			// 	convertWireGuardToSingBox(entry, join(profileDir, "WARPw26312.conf"), config);
-			// 	break;
-			// case "geo-nl":
-			// 	convertWireGuardToSingBox(entry, join(profileDir, "WARPw46075.conf"), config);
-			// 	break;
-			// case "geo-de":
-			// 	convertWireGuardToSingBox(entry, join(profileDir, "WARPw04621.conf"), config);
-			// 	break;
-			// case "geo-de":
-			// 	convertWireGuardToSingBox(entry, join(profileDir, "AWGw35194.conf"), config);
-			// 	break;
-			case "proxy":
-				convertWireGuardToSingBox("proxy", join(profileDir, "proxy.conf"), config);
-				break;
+	const builtinOutbounds = ["direct", "block"];
+	const overrideRoutes: Record<string, string> = {
+		// "geo-fi": "WARPw26312.conf",
+		// "geo-nl": "WARPw46075.conf",
+		// "geo-de": "WARPw04621.conf",
+		// "geo-pl": "WARPw46972.conf",
+		// "geo-de-alt": "AWGw35194.conf",
+		// "proxy": "WARPw05841.conf"
+	};
+
+	buildConfig(options, ((entry, config) => {
+		if (builtinOutbounds.includes(entry)) {
+			return new Route("route", entry);
 		}
-		fillRoute(route, rules);
-		return route;
+
+		let fileName = overrideRoutes[entry];
+		if (!fileName || fileName.trim().length === 0) {
+			fileName = `${entry}.conf`;
+		}
+
+		if (
+			!convertWireGuardToSingBox(
+				entry,
+				join(profileDir, fileName),
+				config,
+			)
+		) {
+			return null;
+		}
+		return new Route("route", entry);
 	}) as RouteAcceptor);
 	await startBox(workdirPath);
 }
