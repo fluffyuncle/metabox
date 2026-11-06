@@ -1,0 +1,6 @@
+{
+	"listen": "127.0.0.1",
+	"listen_port": 5533,
+	"tag": "dns-in",
+	"type": "direct"
+}

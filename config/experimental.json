@@ -1,0 +1,11 @@
+{
+    "cache_file": {
+        "enabled": true,
+		"store_dns": true,
+		"store_fakeip": true
+    },
+	"clash_api": {
+		"external_controller": "127.0.0.1:9090",
+		"secret": "2bf9db1acda320a981b6ec5796cab312"
+	}
+}

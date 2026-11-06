@@ -1,0 +1,5 @@
+{
+	"cache_capacity": 65536,
+	"optimistic": true,
+	"strategy": "prefer_ipv4"
+}

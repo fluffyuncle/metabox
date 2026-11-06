@@ -1,0 +1,8 @@
+{
+	"domain_resolver": "dns-direct",
+	"path": "/dns-query",
+	"server": "1.1.1.1",
+	"headers": { "Host": "mozilla.cloudflare-dns.com" },
+	"tag": "dns-remote",
+	"type": "https"
+}

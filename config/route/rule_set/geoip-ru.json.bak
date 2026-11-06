@@ -1,0 +1,6 @@
+{
+	"format": "binary",
+	"tag": "geoip-ru",
+	"type": "remote",
+	"url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/ru.srs"
+}

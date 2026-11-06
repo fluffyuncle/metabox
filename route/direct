@@ -1,0 +1,162 @@
+# Outlook
+#full:outlook.live.com
+full:outlook.office365.com
+full:outlook.cloud.microsoft
+full:smtp-mail.outlook.com
+full:pop-mail.outlook.com
+full:imap-mail.outlook.com
+# OAuth
+full:login.microsoftonline.com
+
+# Google
+#full:gmail.com
+#full:mail.google.com
+#full:pop.gmail.com
+#full:imap.gmail.com
+#full:smtp.gmail.com
+# OAuth
+#full:accounts.google.com
+
+include:google-dl
+include:jetbrains-dl
+
+### Russia
+include:category-ai-ru
+
+# Yandex
+#full:mail.yandex.com
+#full:mail.yandex.ru
+full:pop.yandex.com
+full:imap.yandex.com
+full:smtp.yandex.com
+# OAuth
+full:oauth.yandex.com
+
+# Mail.ru & VK
+#full:mail.vk.com
+#full:vk.mail.ru
+full:pop.mail.ru
+full:imap.mail.ru
+full:smtp.mail.ru
+# OAuth
+full:o2.mail.ru
+full:account.mail.ru
+
+full:api.github.com
+
+#full:gstatic.com
+#full:www.gstatic.com
+#full:fonts.gstatic.com
+#full:fonts.googleapis.com
+#full:ssl.gstatic.com
+
+# Visual Studio / VScode
+vsassets.io
+visualstudio.com
+vscode.dev
+
+# Google (with AI)
+full:www.google.com
+
+#full:google.com
+#full:ogs.google.com
+
+#include:yandex @-ads
+
+#ruleset:geoip-ru
+include:geoip-ru-edgecenter
+
+boosty.to
+gmru.net
+
+include:yandex
+include:mailru-group
+
+#full:translation.googleapis.com
+#full:translate.google.com
+
+full:api.browser.yandex.ru
+
+# YummyAnime
+yummystatus.me
+yummyani.me
+yummy-ani.me
+yummy-anime.ru
+yummyanime.club
+yummyanime.com
+yummyanime.org
+yummyanime.ton
+yani.tv
+
+# CVH
+domain:cdnvideohub.com
+domain:okcdn.ru
+
+# Alloha
+domain:vkvideo.cloud
+
+# Kodik
+kodik.biz
+kodik.cc
+kodik.info
+#kodikplayer.com
+kodikres.com
+kodik-storage.com
+kodik-cdn.com
+kodik-api.com
+
+solodcdn.com
+zerocdn.com
+nirel.cc
+
+# YummyCraft
+yummycraft.me
+
+#full:objects.githubusercontent.com
+#full:raw.githubusercontent.com
+#full:gist.githubusercontent.com
+#full:release-assets.githubusercontent.com
+
+include:wikimedia
+
+# Steam
+s.team
+valvesoftware.com
+steamcontent.com
+steamserver.net
+valve.map.fastly.net
+steamcontent.com.bcdnx.com
+steamcontent.akadns.net
+steamcommunity-a.akamaihd.net
+steamcdn-a.akamihd.net
+steampipe.akamaized.net
+valve.vo.llnwd.net
+steampowered.com
+steamcommunity.com
+cm.steampowered.com
+login.steampowered.com
+checkout.steampowered.com
+
+#alibaba.cdn.steampipe.steamcontent.com. 19 IN CNAME alibaba.cdn.steampipe.steamcontent.com.w.alikunlun.com.
+#alibaba.cdn.steampipe.steamcontent.com.w.alikunlun.com. 19 IN CNAME alibaba-cdn-steampipe-steamcontent-com-eu.cdn28.com.
+#alibaba-cdn-steampipe-steamcontent-com-eu.cdn28.com. 19 IN CNAME alibaba-cdn-steampipe-steamcontent-com.cdn28.com.
+#alibaba-cdn-steampipe-steamcontent-com.cdn28.com. 19 IN CNAME alibaba-cdn-steampipe-steamcontent-com.cdn84.com.
+#alibaba-cdn-steampipe-steamcontent-com.cdn84.com. 19 IN CNAME alibaba-cdn-steampipe-steamcontent-com-geu.cdn84.com.
+#alibaba-cdn-steampipe-steamcontent-com-geu.cdn84.com. 19 IN CNAME d2n229r1kz6x2f.cloudfront.net.
+
+# Ely.by
+ely.by
+
+git-fork.com
+
+# Ozon
+ozon.ru
+ozone.ru
+ozonusercontent.com
+
+# Ad & Tracker
+adriver.ru
+tns-counter.ru
+
+# NixOS (IP address)
+#full:wiki.nixos.org

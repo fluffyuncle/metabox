@@ -1,0 +1,60 @@
+# Germany
+include:spotify
+include:ngrok-region
+include:notion
+include:deno
+include:jetbrains-region
+include:supercell
+#include:telegram
+include:discord-nitro
+include:gemini
+include:claude
+include:openai-region
+#full:2ip.io
+#full:static.2ip.io
+#full:get-v6.2ip.io
+
+include:notion
+include:broadcom
+
+include:twitch-hd
+include:tiktok-region
+include:patreon
+
+#include:tiktok
+
+full:kodikplayer.com
+
+# LDPlayer
+#full:setup.ldrescdn.com
+
+# Google OAuth
+#google.com
+#www.googleapis.com
+#oauth2.googleapis.com
+#accounts.google.com
+
+full:go.microsoft.com
+full:download.microsoft.com
+
+include:tutamail
+include:mailbox
+
+# Rockstar Games
+full:login.rockstargames.com
+# rsg.sc
+
+# Geo
+# full:challenges.cloudflare.com
+# full:cloudflare-ech.com
+# full:encryptedsni.com
+# full:github.com
+
+# include:category-ai-!cn
+
+store.steampowered.com
+api.steampowered.com
+#steamcommunity.com
+
+full:grok.com
+full:slack.com
