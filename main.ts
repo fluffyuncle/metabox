@@ -5,7 +5,7 @@ import { buildConfig } from "./src/index.ts";
 import { startBox } from "./src/launcher.ts";
 import { Route, RouteAcceptor } from "./src/routes.ts";
 
-const inDir = "indir";
+const inDir = ".";
 const profileDir = "profile";
 const workdirPath = "workdir";
 
@@ -28,7 +28,7 @@ async function main() {
 		inputFile,
 		workDir: workdirPath,
 		outputFile,
-		proxyOutbound: "proxy",
+		proxyOutbound: "geo-ru",
 		directOutbound: "direct",
 		dnsDirectServer: "dns-direct",
 	};

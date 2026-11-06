@@ -1,8 +1,11 @@
-import { join } from "@std/path/join";
+import { DELIMITER } from "@std/path/constants";
 import { dirname } from "@std/path/dirname";
-import { FileEntry, getOutput, hasRequiredFiles, isDirectoryExist } from "./utils.ts";
+import { join } from "@std/path/join";
 import { resolve } from "@std/path/resolve";
 import { unzipDir } from "@stdx/zip/unzip";
+import { isWindows } from "jsr:@std/internal/os";
+import { downloadIfNotExist, FileDownloadable } from "./downloader.ts";
+import { FileEntry, getOutput, hasRequiredFiles, isDirectoryExist, isFileExist } from "./utils.ts";
 
 interface MetaBox {
 	workDir: string;
@@ -100,9 +103,11 @@ async function buildMetaBox(meta: MetaBox): Promise<boolean> {
 		}
 		meta.workDir = res;
 	}
-	/** */
 
-	const goExe = "go";
+	let goExe = `go${isWindows ? ".exe" : ""}`;
+	if(!ok) {
+		return false;
+	}
 
 	const version = await getOutput(
 		goExe,
@@ -214,4 +219,5 @@ export async function startBox(cwd: string) {
 	} else {
 		await process.output();
 	}
+	//Deno.exit((await process.status).code);
 }

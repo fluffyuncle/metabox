@@ -1,4 +1,7 @@
 import { join } from "@std/path/join";
+import { Result, ResultError, ResultSuccess } from "./result.ts";
+
+export const isWindows = Deno.build.os === "windows";
 
 export type JsonObject = Record<string, unknown>;
 
@@ -37,6 +40,18 @@ export function isDirectoryExist(path: string) {
 	try {
 		const stat = Deno.statSync(path);
 		if (!stat || !stat.isDirectory) {
+			return false;
+		}
+	} catch {
+		return false;
+	}
+	return true;
+}
+
+export function isFileExist(path: string) {
+	try {
+		const stat = Deno.statSync(path);
+		if (!stat || !stat.isFile) {
 			return false;
 		}
 	} catch {
@@ -119,7 +134,7 @@ export async function getOutput(
 	args: string[],
 	cwd?: string,
 	env?: Record<string, string>,
-): Promise<string> {
+): Promise<Result<string>> {
 	const { success, code, stdout, stderr } = await new Deno.Command(path, {
 		args,
 		cwd,
@@ -131,8 +146,8 @@ export async function getOutput(
 
 	if (!success) {
 		const error = new TextDecoder().decode(stderr).trim();
-		throw new Error(`${path} завершился с кодом ${code}: ${error}`);
+		return new ResultError(`${path} terminated with code ${code}: ${error}`);
 	}
 
-	return new TextDecoder().decode(stdout).trim();
+	return new ResultSuccess(new TextDecoder().decode(stdout).trim());
 }

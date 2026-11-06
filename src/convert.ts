@@ -96,11 +96,24 @@ function formatAmneziaValueForThrone(key: string, value: string) {
 	return value;
 }
 
-export function convertWireGuardToSingBox(tag: string, inputFile: string, config: JsonObject) {
+function readTextFileSyncSafe(path: string | URL): string | null {
+	try {
+		return Deno.readTextFileSync(path);
+	} catch (err) {
+		if(err instanceof Deno.errors.NotFound) {
+			return null;
+		}
+		throw err;
+	}
+}
+
+export function convertWireGuardToSingBox(tag: string, inputFile: string, config: JsonObject): boolean {
 	const Interface: Record<string, string> = {};
 	const Peer: Record<string, string>[] = [];
 
-	const content = Deno.readTextFileSync(inputFile);
+	const content = readTextFileSyncSafe(inputFile);
+	if(!content) return false;
+
 	const lines = content.split("\n");
 	let section = "";
 
@@ -214,4 +227,6 @@ export function convertWireGuardToSingBox(tag: string, inputFile: string, config
 	}
 
 	appendProperty(config, "endpoints", outbound);
+
+	return true;
 }
