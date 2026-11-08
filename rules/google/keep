@@ -1,0 +1,7 @@
+# Google Keep
+include:messaging-api
+include:sync-api
+include:rpc-api
+include:notes-api
+
+full:keep.google.com

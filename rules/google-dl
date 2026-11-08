@@ -1,0 +1,58 @@
+
+
+full:addons-pa.clients6.google.com
+full:waa-pa.clients6.google.com
+full:signaler-pa.clients6.google.com
+full:clients6.google.com
+
+### Google Docs
+full:docs.google.com
+
+full:docsfrontend-pa.clients6.google.com
+
+full:docs.usercontent.google.com
+full:docs.googleusercontent.com
+full:docs-thirdparty.googleusercontent.com
+
+### Google Contacts
+full:contacts.google.com
+
+full:contactsfrontend-pa.clients6.google.com
+
+full:contacts.usercontent.google.com
+full:contacts.googleusercontent.com
+full:contacts-thirdparty.googleusercontent.com
+
+##
+
+### Google Lens
+full:lens.google.com
+
+full:lensfrontend-pa.clients6.google.com
+
+full:lens.usercontent.google.com
+full:lens.googleusercontent.com
+full:lens-thirdparty.googleusercontent.com
+
+### Infrastructure
+full:lh3.google.com
+full:lh3.usercontent.google.com
+full:lh3.googleusercontent.com
+
+full:lh4.google.com
+full:lh4.usercontent.google.com
+full:lh4.googleusercontent.com
+
+full:lh5.google.com
+full:lh5.usercontent.google.com
+full:lh5.googleusercontent.com
+
+### Other
+full:www.google.com
+full:www.gstatic.com
+full:apis.google.com
+
+full:fonts.gstatic.com
+full:fonts.googleapis.com
+
+full:ssl.gstatic.com

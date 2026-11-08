@@ -1,0 +1,9 @@
+# Google Chat
+include:messaging-api
+include:sync-api
+include:feedback-api
+include:recommend-api
+include:people-api
+#include:contacts
+
+full:chat.google.com

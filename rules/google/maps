@@ -1,0 +1,6 @@
+# Google Maps
+include:rpc-api
+include:sync-api
+include:street-api
+
+full:maps.google.com

@@ -1,0 +1,9 @@
+# Google Photos
+include:feedback-api
+include:sync-api
+include:people-api
+
+full:photos.google.com
+full:photos.fife.usercontent.google.com
+
+# Google Video

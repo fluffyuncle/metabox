@@ -1,0 +1,10 @@
+# Google Calendar
+include:messaging-api
+include:rpc-api
+include:people-api
+include:calendar-api
+include:recommend-api
+include:addons-api
+include:tasks-api
+
+full:calendar.google.com

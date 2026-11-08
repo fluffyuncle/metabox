@@ -1,0 +1,33 @@
+# FCM list
+full:mtalk.google.com
+full:mtalk4.google.com
+full:mtalk-dev.google.com
+full:mtalk-staging.google.com
+full:alt1-mtalk.google.com
+full:alt2-mtalk.google.com
+full:alt3-mtalk.google.com
+full:alt4-mtalk.google.com
+full:alt5-mtalk.google.com
+full:alt6-mtalk.google.com
+full:alt7-mtalk.google.com
+full:alt8-mtalk.google.com
+full:android.apis.google.com
+full:device-provisioning.googleapis.com
+full:firebaseinstallations.googleapis.com
+
+full:fcm.googleapis.com
+full:fcmdata.googleapis.com
+full:iid.googleapis.com
+
+# GCM list (deprecated)
+full:gcm-http.googleapis.com
+full:gcm-xmpp.googleapis.com
+full:android.googleapis.com # android.googleapis.com/gcm/send
+full:android.clients.google.com
+
+#domain:gds.google.com
+#domain:mail.google.com
+#domain:gmail.com
+
+#domain:android.com
+#domain:android.google.com

@@ -1,0 +1,10 @@
+## Heinlein Support GmbH AS199118
+# MailBox.org
+cidr:80.241.56.0/21
+cidr:185.97.172.0/22
+cidr:80.241.60.0/24
+cidr:91.198.250.0/24
+cidr:91.223.20.0/24
+cidr:195.10.208.0/24
+
+mailbox.org

@@ -1,0 +1,5 @@
+# Google One
+include:feedback-api
+include:sync-api
+
+full:one.google.com

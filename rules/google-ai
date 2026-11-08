@@ -1,0 +1,8 @@
+# Google AI
+full:generativelanguage.googleapis.com
+full:proactivebackend-pa.googleapis.com
+full:robinfrontend-pa.googleapis.com # For mobile gemini app
+full:aisandbox-pa.googleapis.com
+full:geller-pa.googleapis.com
+full:assistant-s3-pa.googleapis.com
+full:aitestkitchen.withgoogle.com

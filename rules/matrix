@@ -1,0 +1,31 @@
+# Account server
+full:account.matrix.org
+
+# Client server
+full:matrix-client.matrix.org
+
+# Identity server
+full:vector.im
+
+# Integration manager (bots, widgets, sticker packs)
+full:scalar.vector.im
+
+# Livekit
+full:livekit-jwt.call.matrix.org
+
+# Main
+full:matrix.org
+
+# Federation
+full:matrix-federation.matrix.org
+
+# All domains
+arewereadyyet.com
+cinny.in
+element.io
+fluffychat.im
+matrix.org
+matrix.to
+modular.im
+riot.im
+vector.im

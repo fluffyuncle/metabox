@@ -1,0 +1,6 @@
+# Google Contacts
+include:people-api
+include:feedback-api
+include:sync-api
+
+full:contacts.google.com

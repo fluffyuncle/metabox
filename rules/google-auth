@@ -1,0 +1,10 @@
+full:accounts.google.com
+# full:accounts.youtube.com
+
+full:www.googleapis.com
+full:identitytoolkit.googleapis.com
+
+full:oauth2.googleapis.com
+full:oauth-redirect.googleusercontent.com
+full:securetoken.googleapis.com
+full:oauthaccountmanager.googleapis.com

@@ -1,0 +1,14 @@
+### Google Drive
+include:messaging-api
+include:sync-api
+include:recommend-api
+include:rpc-api
+include:people-api
+include:drive-api
+include:addons-api
+
+full:drive.google.com
+
+full:drive.usercontent.google.com
+full:drive.googleusercontent.com
+full:drive-thirdparty.googleusercontent.com

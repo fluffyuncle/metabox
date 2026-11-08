@@ -1,0 +1,9 @@
+# Google Docs
+include:messaging-api
+include:sync-api
+include:recommend-api
+include:rpc-api
+include:people-api
+include:drive-api
+
+full:docs.google.com

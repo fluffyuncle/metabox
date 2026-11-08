@@ -1,0 +1,8 @@
+# Google Sites
+include:drive-api
+include:sync-api
+include:recommend-api
+include:messaging-api
+include:people-api
+
+full:sites.google.com
