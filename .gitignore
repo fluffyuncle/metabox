@@ -1,3 +1,7 @@
-sing-box*
+sing-box
+sing-box.exe
+sing-box-src
+sing-box-build
 workdir/
 profile/
+backup/
