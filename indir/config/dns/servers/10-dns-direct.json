@@ -1,5 +1,0 @@
-{
-	"domain_resolver": "dns-local",
-	"tag": "dns-direct",
-	"type": "local"
-}
